@@ -1,4 +1,6 @@
 import React, { useState} from 'react';
+import HoverVideoPlayer from 'react-hover-video-player';
+
 
 import './App.css';
 import {data} from './RawData';
@@ -68,14 +70,30 @@ function App() {
       <div
           id='slider'
           className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'
+
         >
-    
-        {data.map((item) => (
-          <img
-            className='w-[220px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300'
-            src={item.img}
-            alt='/'
-          />
+ {data.map((item) => (
+        <HoverVideoPlayer
+              videoSrc={item.video}
+              pausedOverlay={
+                <img
+                className='w-[220px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300'
+                src={item.img}
+                  alt=""
+                  style={{
+                    // Make the image expand to cover the video's dimensions
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
+                />
+              }
+              loadingOverlay={
+                <div className="loading-overlay">
+                  <div className="loading-spinner" />
+                </div>
+              }
+            />
         ))}
         </div>
         
