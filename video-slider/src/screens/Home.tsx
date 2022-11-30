@@ -1,19 +1,29 @@
 import React from "react";
 import HoverVideoPlayer from "react-hover-video-player";
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import NavBar from "../components/NavBar";
 import { data } from "../RawData";
 
 const Home = () => {
+
+  
+  
+  
   return (
     <div className="flex flex-col w-full min-h-screen overflow-x-auto bg-black">
       <NavBar></NavBar>
 
-      <div className="flex w-full gap-0 p-8 pb-5 mt-4 overflow-x-auto hover:snap-x scroll scroll-auto whitespace-nowrap md:scrollbar-default">
-        {data.map((item) => (
+      <div className='relative flex items-center'>
+    
+        <div
+          id='slider'
+          className='flex w-full h-full overflow-x-scroll hover:snap-x scroll pb-15 whitespace-nowrap scroll-auto'
+        >
+          {data.map((item, index) => (
           <div className="min-w-[80%] md:min-w-[40%] md:scrollbar-default">
             <div
               className="w-full h-full snap-center rounded-xl md:scrollbar-default"
-              key={item.id}
+              key={index}
             >
               <HoverVideoPlayer
                 videoSrc={item.video}
@@ -44,6 +54,10 @@ const Home = () => {
             <h3>1st July 9pm</h3>
           </div>
         ))}
+         
+      
+      </div>
+
       </div>
     </div>
   );
