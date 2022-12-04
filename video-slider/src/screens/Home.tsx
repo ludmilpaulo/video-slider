@@ -8,7 +8,6 @@ const Home = () => {
 
   
   
-  
   return (
     <div className="flex flex-col w-full min-h-screen overflow-x-auto bg-black">
       <NavBar></NavBar>
@@ -17,12 +16,12 @@ const Home = () => {
     
         <div
           id='slider'
-          className='flex w-full h-full overflow-x-scroll hover:snap-x scroll pb-15 whitespace-nowrap scroll-auto'
+          className='lg:flex w-full h-full overflow-x-scroll hover:snap-x scroll pb-15 whitespace-nowrap scroll-smooth md:scroll-auto md:max-lg:flex'
         >
           {data.map((item, index) => (
-          <div className="min-w-[80%] md:min-w-[40%] md:scrollbar-default">
+          <div className="min-w-[80%] md:min-w-[40%] md:scrollbar-default ">
             <div
-              className="w-full h-full snap-center rounded-xl md:scrollbar-default"
+              className="w-full h-full snap-center md:snap-start rounded-xl"
               key={index}
             >
               <HoverVideoPlayer

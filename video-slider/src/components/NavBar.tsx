@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import myLogo from "../assets/Logo/aglet_logo.svg";
 
 const NavBar = () => {
@@ -11,7 +11,7 @@ const NavBar = () => {
         <div className="container flex flex-wrap items-center justify-between px-4 mx-auto">
           <div className="relative flex justify-between w-full lg:w-auto lg:static lg:block lg:justify-start">
             <Link to={"/"}>
-              <img className="w-24 h-20" src={myLogo} alt="/"></img>
+              <img className="w-24 h-24" src={myLogo} alt="/"></img>
             </Link>
 
             <button
@@ -34,7 +34,7 @@ const NavBar = () => {
               <li className="nav-item">
                 <Link
                   to={"/"}
-                  className="flex items-center px-3 py-2 text-xs font-bold leading-snug text-white uppercase hover:opacity-75"
+                  className="flex items-center px-3 py-2 text-xs font-bold leading-snug text-white hover:opacity-75"
                 >
                   <span className="ml-2">Home</span>
                 </Link>
@@ -42,7 +42,7 @@ const NavBar = () => {
               <li className="nav-item">
                 <Link
                   to={"/contacts/"}
-                  className="flex items-center px-3 py-2 text-xs font-bold leading-snug text-white uppercase hover:opacity-75"
+                  className="flex items-center px-3 py-2 text-xs font-bold leading-snug text-white hover:opacity-75"
                 >
                   <span className="ml-2">Contact</span>
                 </Link>
