@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import myLogo from "../assets/Logo/aglet_logo.svg";
+import {BsMenuButtonWideFill} from "react-icons/bs";
 
 const NavBar = () => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
@@ -19,12 +20,12 @@ const NavBar = () => {
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
-              <i className="fas fa-bars"></i>
+              <i><BsMenuButtonWideFill/></i>
             </button>
           </div>
           <div
             className={
-              "lg:flex flex-grow items-center" +
+              "lg:flex flex-grow items-right" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"
