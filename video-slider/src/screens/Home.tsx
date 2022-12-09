@@ -1,20 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import HoverVideoPlayer from "react-hover-video-player";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import NavBar from "../components/NavBar";
 import { data } from "../RawData";
 
+interface Type{
+    id: number;
+    img: string;
+    video: string;
+    title :string;
+    subtitle :string;
+  
+}
+
 const Home = () => {
-  const [isHovering, setIsHovering] = useState(false);
+  const [hoverData] = useState<Type[]>(data);
+  const [hoverIndex, setHoverIndex] = useState<Type | null>(null)
+  
+  const cardClassname = (index: Type | null) => {
+    if (index === hoverIndex || hoverIndex == null) 
+      return "card text-center";
+    else return "card text-center inactive";
+  }
 
-  const handleMouseOver = () => {
-    console.log("pegou");
-    setIsHovering(true);
-  };
-
-  const handleMouseOut = () => {
-    setIsHovering(false);
-  };
+ 
   return (
     <div className="flex flex-col w-full min-h-screen overflow-x-auto bg-black">
       <NavBar></NavBar>
@@ -23,13 +32,16 @@ const Home = () => {
         <div
           id="slider"
           className="lg:flex w-full h-full overflow-x-scroll hover:snap-x scroll pb-5 overflow-y-auto whitespace-nowrap scroll-smooth md:scroll-auto md:max-lg:flex"
-          onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}
         >
-          {data.map((item, index) => (
+          {hoverData.map((item, index) => (
+            
+
             <div className="min-w-[80%] md:min-w-[40%] md:scrollbar-default ">
               <div
-                className="w-full h-full snap-center md:snap-start"
+                className="w-full h-full snap-center md:snap-start "
                 key={index}
+                onMouseOver={() => setHoverIndex(item)} 
+                  onMouseLeave={() => setHoverIndex(null)}
               >
                 <HoverVideoPlayer
                   videoSrc={item.video}
@@ -61,6 +73,8 @@ const Home = () => {
               </div>
 
             </div>
+          
+          
           ))}
         </div>
       </div>
