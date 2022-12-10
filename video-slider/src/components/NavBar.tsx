@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import myLogo from "../assets/Logo/aglet_logo.svg";
-import {BsMenuButtonWideFill} from "react-icons/bs";
+import { BsMenuButtonWideFill } from "react-icons/bs";
 
 const NavBar = () => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
 
   return (
     <div>
-      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 mb-3 bg-black">
+      <nav className="relative flex-1 flex-wrap items-center justify-between px-2 py-3 mb-3 bg-black">
         <div className="container flex flex-wrap items-center justify-between px-4 mx-auto">
           <div className="relative flex justify-between w-full lg:w-auto lg:static lg:block lg:justify-start">
             <Link to={"/"}>
@@ -20,12 +20,14 @@ const NavBar = () => {
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
-              <i><BsMenuButtonWideFill/></i>
+              <i>
+                <BsMenuButtonWideFill />
+              </i>
             </button>
           </div>
           <div
             className={
-              "lg:flex flex-grow items-right" +
+              "lg:flex flex-grow items-left" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"
