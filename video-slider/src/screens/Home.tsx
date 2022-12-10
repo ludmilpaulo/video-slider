@@ -26,7 +26,7 @@ const Home = () => {
   //************************************************************ */
 
   return (
-    <div className="flex flex-col w-full min-h-screen overflow-x-auto bg-black">
+    <div className="flex flex-col w-full min-h-screen overflow-x-scroll bg-black">
       
       <NavBar></NavBar>
 
