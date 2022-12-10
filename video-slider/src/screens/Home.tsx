@@ -14,10 +14,10 @@ interface Type {
 //**************************************************************************************** */
 
 const Home = () => {
-  const [hoverData] = useState<Type[]>(data); //set the Array in the state to be consumed 
-  const [active, setActive] = useState(-1); // Variable to set the active hovered element 
+  const [hoverData] = useState<Type[]>(data); //set the Array in the state to be consumed
+  const [active, setActive] = useState(-1); // Variable to set the active hovered element
 
-//**********Function to turn element that is not hover dark */
+  //**********Function to turn element that is not hover dark */
   const getHoveItem = (index: number) => {
     if (active > -1 && index !== active) return "bg-black opacity-5 ...";
     return "";
@@ -27,19 +27,19 @@ const Home = () => {
 
   return (
     <div className="flex flex-col w-full min-h-screen overflow-x-scroll bg-black">
-      
       <NavBar></NavBar>
 
       <div className="relative flex items-center pt-16">
         <div
           id="slider"
-          className={`lg:flex w-full h-full overflow-x-scroll hover:snap-x scroll pb-[55px] overflow-y-auto whitespace-nowrap scroll-smooth md:scroll-auto md:max-lg:flex
+          className={`lg:flex w-full h-full overflow-x-scroll hover:snap-x scroll pb-[65px] overflow-y-auto whitespace-nowrap scroll-smooth md:scroll-auto md:max-lg:flex
+          scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-zinc-500
           ${active ? "active" : ""}`}
         >
           {hoverData.map((item, index) => (
             <div className="min-w-[80%] md:min-w-[40%] md:scrollbar-default ">
               <div
-                className={`w-full h-full snap-center md:snap-start ${ getHoveItem(
+                className={`w-full h-full snap-center md:snap-start ${getHoveItem(
                   index
                 )}`}
                 key={index}
@@ -72,14 +72,18 @@ const Home = () => {
                   }
                 />
                 <div className="text-justify text-white whitespace-nowrap">
-                  <br/>
+                  <br />
                   <h2>{item.title}</h2>
 
                   <h3 className="text-zinc-500">{item.subtitle}</h3>
                 </div>
+                
               </div>
             </div>
           ))}
+      
+
+
         </div>
       </div>
     </div>
