@@ -33,7 +33,7 @@ const Home = () => {
         <div
           id="slider"
           className={`lg:flex w-full h-full overflow-x-scroll hover:snap-x scroll pb-[65px] overflow-y-auto whitespace-nowrap scroll-smooth md:scroll-auto md:max-lg:flex
-          scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-zinc-500
+          scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-zinc-500 
           ${active ? "active" : ""}`}
         >
           {hoverData.map((item, index) => (
@@ -77,13 +77,9 @@ const Home = () => {
 
                   <h3 className="text-zinc-500">{item.subtitle}</h3>
                 </div>
-                
               </div>
             </div>
           ))}
-      
-
-
         </div>
       </div>
     </div>
